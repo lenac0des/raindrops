@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+}
+
+/* Layout */
+
+h1, h2{
+    text-align: center;
+}
+
+img{
+    display: block;
+    height: 300px;
+    margin: 0 auto;
+}
+
+ul{
+    width: 100px;
+    height: 200px;
+    border: 3px solid black;
+    border-radius: 2px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+}
+
+li{
+    width: 94px;
+    height: 65px;
+}
