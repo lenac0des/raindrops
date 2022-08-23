@@ -11,19 +11,26 @@
     <h1>Choose Your Sleep Aid</h1>
 
     <ul>
-       <audio src="/sounds/calm.mp3"><li id="calm"></li></audio> 
-        <li id="thunder"></li>
-        <li id="pit"></li>
-        <li id="pat"></li>
-    </ul>
+        <input type="button" value="calm" onclick="play()">
+        <audio id="audioCalm" src="/sounds/calm.mp3"></audio>
 
 
 
+        <input type="button" value="thunder" onclick="play()">
+<audio id="audioThunder" src="/sounds/thunder.mp3"></audio>
 
-    <!-- <h2 id="choice">make it say close your eyes and count the rain drops to the dom via javascript</h2> -->
+<input type="button" value="heavy" onclick="play()">
+<audio id="audioPit" src="/sounds/pit.mp3"></audio>
+
+
+<input type="button" value="normal" onclick="play()">
+<audio id="audioPat" src="/sounds/pat.mp3"></audio>
+
+
+
+    <h2 id="choice"></h2>
 
     <script src="main.js"></script>
 
-    <footer>sounds from zapsplat.com</footer>
 </body>
 </html>

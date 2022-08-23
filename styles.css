@@ -4,7 +4,7 @@
 
 /* Layout */
 
-h1, h2{
+h1{
     text-align: center;
 }
 
@@ -29,6 +29,10 @@ li{
     height: 65px;
 }
 
-footer{
+/* footer{
     font-size: 8px;
+} */
+
+audio{
+    display: none;
 }
