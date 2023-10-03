@@ -1,51 +1,69 @@
-
+/**
+    * @description      : 
+    * @author           : ellen
+    * @group            : 
+    * @created          : 03/10/2023 - 13:55:37
+    * 
+    * MODIFICATION LOG
+    * - Version         : 1.0.0
+    * - Date            : 03/10/2023
+    * - Author          : ellen
+    * - Modification    : 
+**/
 
 let message = 'Close your eyes and count the rain drops.'
 
 
-let calmRain = document.getElementById('audioCalm')
+let calmRain = document.getElementById("calm");
+let calmButton = document.getElementById("calmButton");
 
-let thunderRain = document.getElementById('audioThunder')
-
-let pitTer = document.getElementById('audioPit')
-
-let patTer = document.getElementById('audioPat')
-// document.getElementById('calm').onclick = calmRain
-// document.getElementById('thunder').onclick = thunderRain
-// document.getElementById('pit').onclick = pitTer
-// document.getElementById('pat').onclick = patTer
-
-
-// function calmRain() {
-//     document.querySelector('audio').ul.li = 'calm'
-//     document.querySelector('audio').style.display.toggle('hidden')
-//     document.querySelector('#choice').innerText = message
-
-// }
-
-// function play() {
-//     let audio = document.getElementById('audioCalm')
-//     audio.play()
-//     document.querySelector('#choice').innerText = message
-// }
-
-function currentSound(){
-    if(currentSound === 'audioCalm'){
-    calmRain.play();
-    }else if(currentSound != 'audioCalm'){
+function playCalmRain() {
+    if (calmRain.paused) {
+        calmRain.play();
+    } else {
         calmRain.pause();
-    }else if(currentSound === 'audioThunder'){
-        thunderRain.play();
-    }else if(currentSound != 'audioThunder'){
-        thunderRain.pause();
-    }else if(currentSound === 'audioPit'){
-        pitTer.play()
-    }else if(currentSound != 'audioPit'){
-        pitTer.pause();
-    }else if(currentSound === 'audioPat'){
-        patTer.play();
-    }else{
-        patTer.pause();
+        calmRain.currentTime = 0;
     }
-    
 }
+calmButton.addEventListener("click", playCalmRain);
+
+let thunderRain = document.getElementById("thunder");
+let thunderButton = document.getElementById("thunderButton");
+
+function playThunderRain() {
+    if (thunderRain.paused) {
+        thunderRain.play();
+    } else {
+        thunderRain.pause();
+        thunderRain.currentTime = 0;
+    }
+}
+thunderButton.addEventListener("click", playThunderRain);
+
+
+let roofRain = document.getElementById("roof");
+let roofButton = document.getElementById("roofButton");
+
+function playRoofRain() {
+    if (roofRain.paused) {
+        roofRain.play()
+    } else {
+        roofRain.pause()
+        roofRain.currentTime = 0;
+    }
+}
+roofButton.addEventListener("click", playRoofRain);
+
+
+let rainWindow = document.getElementById("window");
+let windowButton = document.getElementById("windowButton");
+
+function playRainWindow() {
+    if (rainWindow.paused) {
+        rainWindow.play()
+    } else {
+        rainWindow.pause()
+        rainWindow.currentTime = 0;
+    }
+}
+windowButton.addEventListener("click", playRainWindow);
