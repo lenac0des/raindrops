@@ -59,3 +59,23 @@ const backToHomeBtn = document.querySelector('.music-player-section .back-btn');
 backToHomeBtn.addEventListener('click', () => {
     musicPlayerSection.classList.remove('active');
 })
+
+
+// accessing the playlist
+
+const playlistSection = document.querySelector('.playlist');
+const navBtn = document.querySelector('.music-player-section .nav-btn');
+
+navBtn.addEventListener('click', () => {
+    playlistSection.classList.add('active');
+})
+
+
+// back from playlist to music player
+
+
+const backToMusicPlayer = document.querySelector('.playlist .back-btn');
+ 
+backToMusicPlayer.addEventListener('click', () => {
+    playlistSection.classList.remove('active');
+})
