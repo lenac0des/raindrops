@@ -148,7 +148,7 @@ const setSounds = (i) => {
     // setting the seekBar max val
     setTimeout (() => {
         seekBar.max = music.duration;
-        nusicDuration.innerHTML = formatTime(music.duration);
+        musicDuration.innerHTML = formatTime(music.duration);
     }, 300);
 
     currentMusicTime.innerHTML = '00 : 00';
@@ -175,3 +175,7 @@ const formatTime = (time) => {
 
 // seekbar events
 
+setInterval(() => {
+    seekBar.value = music.currentTime;
+    currentMusicTime.innerHTML = formatTime(music.currentTime);
+}, 500)
