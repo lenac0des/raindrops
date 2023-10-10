@@ -178,6 +178,14 @@ const formatTime = (time) => {
 setInterval(() => {
     seekBar.value = music.currentTime;
     currentMusicTime.innerHTML = formatTime(music.currentTime);
+    if(Math.floor(music.currentTime) == Math.floor(seekBar.max)) {
+        if(repeatBtn.className.includes('active')){
+            setSounds(currentMusic);
+            playBtn.click();
+        } else{
+            forwardBtn.click();
+        }
+    }
 }, 500)
 
 // adding input event on the seek bar
@@ -210,3 +218,14 @@ backwardBtn.addEventListener('click', () =>{
     setSounds(currentMusic);
     playBtn.click();
 })
+
+
+//  repeat button
+
+repeatBtn.addEventListener('click', () =>{
+    repeatBtn.classList.toggle('active');
+})
+
+// the volume
+
+volume
