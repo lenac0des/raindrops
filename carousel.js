@@ -99,6 +99,11 @@ const currentMusicTime = document.querySelector('.current-time');
 const musicDuration = document.querySelector('.duration');
 
 
+
+const queue = [...document.querySelectorAll('.queue')];
+
+
+
 // selecting the controls
 
 
@@ -108,7 +113,7 @@ const playBtn = document.querySelector('i.fa-play');
 const pauseBtn = document.querySelector('i.fa-pause');
 const repeatBtn = document.querySelector('span.fa-redo');
 const volumeBtn = document.querySelector('span.fa-volume-up');
-const VolumeSlider = document.querySelector('.volume-slider');
+const volumeSlider = document.querySelector('.volume-slider');
 
 
 
@@ -152,6 +157,8 @@ const setSounds = (i) => {
     }, 300);
 
     currentMusicTime.innerHTML = '00 : 00';
+    queue.forEach(item => item.classList.remove('active'));
+    queue[currentMusic].classList.add('active');
 }
 
 setSounds(0);
@@ -228,4 +235,18 @@ repeatBtn.addEventListener('click', () =>{
 
 // the volume
 
-volume
+volumeBtn.addEventListener('click', () => {
+    volumeBtn.classList.toggle('active');
+    volumeSlider.classList.toggle('active');
+})
+
+volumeSlider.addEventListener('input', () => {
+    music.volume = volumeSlider.value;
+})
+
+queue.forEach((item, i) => {
+    item.addEventListener('click', () => {
+        setSounds(i);
+        playBtn.click();
+    })
+})
