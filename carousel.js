@@ -179,3 +179,34 @@ setInterval(() => {
     seekBar.value = music.currentTime;
     currentMusicTime.innerHTML = formatTime(music.currentTime);
 }, 500)
+
+// adding input event on the seek bar
+
+seekBar.addEventListener('change', () => {
+    music.currentTime = seekBar.value;
+})
+
+// foward button
+
+forwardBtn.addEventListener('click', () =>{
+    if(currentMusic >= rainSounds.length - 1){
+        currentMusic = 0;
+    } else{
+        currentMusic++;
+    }
+    setSounds(currentMusic);
+    playBtn.click();
+})
+
+
+//  backwards button
+
+backwardBtn.addEventListener('click', () =>{
+    if(currentMusic <= 0){
+        currentMusic = rainSounds.length - 1;
+    } else{
+        currentMusic--;
+    }
+    setSounds(currentMusic);
+    playBtn.click();
+})
