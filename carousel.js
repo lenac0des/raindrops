@@ -79,3 +79,99 @@ const backToMusicPlayer = document.querySelector('.playlist .back-btn');
 backToMusicPlayer.addEventListener('click', () => {
     playlistSection.classList.remove('active');
 })
+
+
+// Music functions
+let currentMusic = 0;
+
+const music = document.querySelector('#audio-source');
+
+const seekBar = document.querySelector('.music-seek-bar');
+
+const soundName = document.querySelector('.current-sound-name');
+
+const artistName = document.querySelector('.artist-name');
+
+const coverImage = document.querySelector('.cover');
+
+const currentMusicTime = document.querySelector('.current-time');
+
+const musicDuration = document.querySelector('.duration');
+
+
+// selecting the controls
+
+
+const forwardBtn = document.querySelector('i.fa-forward');
+const backwardBtn = document.querySelector('i.fa-backward');
+const playBtn = document.querySelector('i.fa-play');
+const pauseBtn = document.querySelector('i.fa-pause');
+const repeatBtn = document.querySelector('span.fa-redo');
+const volumeBtn = document.querySelector('span.fa-volume-up');
+const VolumeSlider = document.querySelector('.volume-slider');
+
+
+
+// playBtn function
+
+playBtn.addEventListener('click', () => {
+    music.play();
+    playBtn.classList.remove('active');
+    pauseBtn.classList.add('active');
+})
+
+
+
+// pauseBtn function
+
+pauseBtn.addEventListener('click', () => {
+    music.pause();
+    pauseBtn.classList.remove('active');
+    playBtn.classList.add('active');
+})
+
+
+//  functions for setting up the sounds
+
+const setSounds = (i) => {
+    seekBar.value = 0;
+    let sound = rainSounds[i];
+    currentMusic = i;
+
+    music.src = sound.path;
+
+    soundName.innerHTML = sound.name;
+    artistName.innerHTML = sound.title;
+    coverImage.src = sound.cover;
+
+
+    // setting the seekBar max val
+    setTimeout (() => {
+        seekBar.max = music.duration;
+        nusicDuration.innerHTML = formatTime(music.duration);
+    }, 300);
+
+    currentMusicTime.innerHTML = '00 : 00';
+}
+
+setSounds(0);
+
+
+//  format duration 00 : 00 
+
+const formatTime = (time) => {
+    let min = Math.floor(time / 60);
+    if(min < 10){
+        min = `0` + min;
+    }
+
+    let sec = Math.floor(time % 60);
+    if(sec < 10){
+        sec = `0` + sec;
+    }
+
+    return `${min} : ${sec}`;
+}
+
+// seekbar events
+
